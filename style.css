@@ -1,0 +1,417 @@
+/* ===== テーマカラー ===== */
+:root {
+  --main-color:#87cefa;  /* ← ここはそのまま */
+  --background-color: #e0ffff;
+  --border-color: #d9eeee;
+}
+
+
+/* ===== 背景の色 ===== */
+body {
+  background: var(--background-color);
+}
+
+h1 {
+  font-size: 20px;
+  color: #555;
+  margin: 16px;
+}
+
+/*justify-content: space-between；は3つの用を左右均等に配置 */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.calendar-header h2 {
+  margin: 0;
+  font-size: 30px;
+  color: #444;
+}
+
+.calendar-header button {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+  min-height: 100px;
+  border: 1px solid #ddd;
+  padding: 5px;
+  background: white;
+}
+
+.day-number {
+  font-size: 18px;
+  font-weight: 600;
+  color: #555;
+}
+
+.sunday .day-number {
+  color: #e57373;
+}
+
+.saturday .day-number {
+  color: #64b5f6;
+}
+
+.calendar {
+  background: white;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 20px;
+}
+
+.sticker-area {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 5px;
+  height: 70px;
+}
+
+.sticker-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+
+  background-color: rgba(0, 0, 0, 0.4);
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.modal-content {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 360px;
+}
+
+.modal-section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #5f8f8f;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+.record-habit-button {
+  border: 1px solid #dcdcdc;
+  background: white;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ===== モーダルの戻るボタン ===== */
+/*#を，で区切るのが大事*/
+#close-modal,
+#close-habit-detail,
+#close-add-habit-modal {
+  border: 1px solid #dcdcdc;
+  background: white;
+  border-radius: 12px;
+  padding: 6px 9px;
+
+  font-size: 12px;
+  cursor: pointer;
+}
+
+
+/*完了ボタンしたのに行で浮いて可愛くなった*/
+/*box-shadow: 横方向 縦方向 ぼかし 色;*の意味　*/
+/* rgbarはr = Red   赤
+g = Green 緑
+b = Blue  青
+a = Alpha 透明度　の意味。0,0,0で黒*/
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  background: white;
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.nav-button {
+  border: none;
+  background: white;
+  padding: 10px 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 3px;
+  cursor: pointer;
+}
+
+.nav-button span:first-child {
+  font-size: 22px;
+}
+
+.nav-button span:last-child {
+  font-size: 12px;
+}
+
+.nav-button.active {
+  font-weight: bold;
+  color: var(--main-color);
+}
+
+.page {
+  display: none;
+  padding-bottom: 80px;
+}
+
+.page.active-page {
+  display: block;
+}
+
+#sticker-picker {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.sticker-button {
+  width: 48px;
+  height: 48px;
+
+  font-size: 24px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
+
+.sticker-button.selected {
+  border-color: var(--main-color);
+  background: #e0ffff;
+}
+
+#active-habit-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.habit-item {
+  min-height: 100px;
+  padding: 10px 6px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  background: white;
+
+  cursor: pointer;
+}
+
+.empty-habit-item {
+  border: 1px dashed #ccc;
+  background: #fafafa;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.habit-sticker {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.habit-name {
+  font-size: 13px;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.completed-habit-item {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  min-height: 80px;
+  padding: 16px;
+  margin-bottom: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#completed-habit-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+
+
+.completed-habit-name {
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.completed-habit-sticker {
+  font-size: 32px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+/* 習慣を追加ボタン*/
+#add-habit-button {
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: var(--main-color);
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#habit-name-input {
+  width: 80%;
+  padding: 12px;
+
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  font-size: 14px;
+}
+
+/* ===== メインボタン（でかいやつ） ===== */
+#save-record-button,
+#save-habit-button,
+#complete-habit-button {
+  width: 100%;
+  margin-top: 18px;
+  padding: 12px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: var(--main-color);
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== 控えめな削除ボタン ===== */
+/* # と.という違う要素も，で並べれば同じデザインを共有できる.*/
+#delete-habit-button,
+.completed-delete-button {
+  margin-top: 10px;
+  padding: 4px 10px;
+
+  border: none;
+  background: transparent;
+
+  color: #aaa;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+#detail-habit-slot {
+  display: none;
+}
+
+#detail-habit-title {
+  text-align: center;
+}
+
+#selected-date {
+  margin-left: 120px;
+}
+
+/* ===== スマホ表示 ===== */
+@media (max-width: 600px) {
+
+  .calendar-days {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
+.day {
+  min-width: 0;
+  height: 100px;
+  padding: 3px;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-rows: 22px 1fr;
+}
+
+.sticker-area {
+  min-width: 0;
+  min-height: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+
+  gap: 0;
+  margin: 0;
+  height: auto;
+}
+
+  .sticker-slot {
+  font-size: 10px;
+  min-height: 0;
+  line-height: 1;
+}
+  h1 {
+    font-size: 18px;
+    margin: 12px 16px;
+  }
+
+}

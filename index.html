@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>習慣化スケジュール </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+  <h1>習慣化スケジュール </h1>
+
+  <!-- ===== カレンダー画面 ===== -->
+  <section id="calendar-page" class="page active-page">
+  <div class="calendar">
+
+<div class="calendar-header">
+  <button id="prev-month">←</button>
+  <h2 id="calendar-title">2026年9月</h2>
+  <button id="next-month">→</button>
+</div>
+
+<div class="weekdays">
+  <div>日</div>
+  <div>月</div>
+  <div>火</div>
+  <div>水</div>
+  <div>木</div>
+  <div>金</div>
+  <div>土</div>
+</div>
+
+<div class="calendar-days">
+</div>
+
+</div>
+</section>
+
+<!-- ===== 習慣一覧画面 ===== -->
+<section id="habits-page" class="page">
+  <h2>🌱 習慣</h2>
+  <p id="habit-count"></p>
+  <div id="active-habit-list"></div>
+  <button id="add-habit-button">
+    ＋ 習慣を追加
+  </button>
+</section>
+
+<!-- ===== 達成済み画面 ===== -->
+<section id="completed-page" class="page">
+  <h2>🏆 習慣化できた！</h2>
+  <p>あなたが身につけた習慣</p>
+  <div id="completed-habit-list"></div>
+</section>
+
+<!-- ===== 日付を押したときの記録モーダル ===== -->
+<div id="habit-modal" class="modal">
+
+  <div class="modal-content">
+
+    <button id="close-modal">←戻る</button>
+
+    <h3 id="selected-date">今日できた習慣は？</h3>
+
+    <div id="habit-list"></div>
+    <button id="save-record-button">完了</button>
+
+  </div>
+
+</div>
+
+<!-- ===== 習慣追加モーダル ===== -->
+<div id="add-habit-modal" class="modal">
+  <div class="modal-content">
+    <button id="close-add-habit-modal">←戻る</button>
+    <h3>新しい習慣</h3>
+    <p>何を習慣にする？</p>
+    <input
+      type="text"
+      id="habit-name-input"
+      placeholder="例：資格の勉強"
+    >
+    <p>シールを選ぶ</p>
+
+
+<div id="sticker-picker">
+
+  <button class="sticker-button" data-sticker="👟">👟</button>
+  <button class="sticker-button" data-sticker="🏋️">🏋️</button>
+  <button class="sticker-button" data-sticker="🧘">🧘</button>
+  <button class="sticker-button" data-sticker="📔">📔</button>
+  <button class="sticker-button" data-sticker="📖">📖</button>
+  <button class="sticker-button" data-sticker="✏️">✏️</button>
+  <button class="sticker-button" data-sticker="☀️">☀️</button>
+  <button class="sticker-button" data-sticker="💬">💬</button>
+  <button class="sticker-button" data-sticker="❤️">❤️</button>
+  <button class="sticker-button" data-sticker="💰">💰</button>
+  <button class="sticker-button" data-sticker="🍺">🍺</button>
+  <button class="sticker-button" data-sticker="🛁">🛁</button>
+  <button class="sticker-button" data-sticker="🍽️">🍽️</button>
+  <button class="sticker-button" data-sticker="🧹">🧹</button>
+  <button class="sticker-button" data-sticker="💤">💤</button>
+
+</div>
+
+    <button id="save-habit-button">
+      この習慣を始める
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ===== 習慣詳細モーダル ===== -->
+<div id="habit-detail-modal" class="modal">
+
+  <div class="modal-content">
+
+    <button id="close-habit-detail">←戻る</button>
+
+    <h2 id="detail-habit-title"></h2>
+
+    <p id="detail-habit-slot"></p>
+
+    <button id="complete-habit-button">
+      🏆 習慣化できた！
+    </button>
+
+    <button id="delete-habit-button">
+      削除
+    </button>
+
+  </div>
+
+</div>
+
+<!-- ===== 下部ナビゲーション ===== -->
+<nav class="bottom-nav">
+
+  <button class="nav-button active" data-page="calendar">
+    <span>📅</span>
+    <span>カレンダー</span>
+  </button>
+
+  <button class="nav-button" data-page="habits">
+    <span>🌱</span>
+    <span>習慣</span>
+  </button>
+
+  <button class="nav-button" data-page="completed">
+    <span>🏆</span>
+    <span>達成済み</span>
+  </button>
+
+</nav>
+
+<script src="script.js"></script>
+</body>
+
+</html>
