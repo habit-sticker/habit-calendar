@@ -41,9 +41,11 @@ let selectedHabitId = "";
 let selectedSlot = null;
 let temporaryRecords = [];
 
-// 最初に表示する年月
-let currentYear = 2026;
-let currentMonth = 8;
+
+// 最初に表示する年月（今日の年月）
+const today = new Date();
+let currentYear = today.getFullYear();
+let currentMonth = today.getMonth();
 
 let habits = JSON.parse(localStorage.getItem("habits")) || [
   {
