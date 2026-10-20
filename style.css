@@ -175,7 +175,7 @@ a = Alpha 透明度　の意味。0,0,0で黒*/
 /* ===== 下部ナビゲーション ===== */
 .bottom-nav {
   position: fixed;
-  bottom: 0;
+  bottom: 30px;
   left: 0;
   right: 0;
 
@@ -451,3 +451,32 @@ a = Alpha 透明度　の意味。0,0,0で黒*/
 }
 
 
+
+/* ===== プライバシーポリシー ===== */
+.privacy-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  height: 30px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--background-color);
+  z-index: 20;
+}
+
+.privacy-footer a {
+  font-size: 10px;
+  color: #527b91;
+  text-decoration: underline;
+}
+
+/* ===== 下部メニューとの重なり防止 ===== */
+.page {
+  padding-bottom: 110px;
+}
