@@ -107,7 +107,7 @@ h1 {
 .sticker-slot {
   display: flex;
   align-items: center;
-  justify-content: center;
+  jusbordertify-content: center;
   font-size: 15px;
 }
 
@@ -300,6 +300,11 @@ a = Alpha 透明度　の意味。0,0,0で黒*/
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+}
+
+/* ===== 挑戦中 5/9 を非表示 ===== */
+#habit-count {
+  display: none;
 }
 
 /* ===== 達成済み習慣 ===== */
