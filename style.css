@@ -44,7 +44,7 @@ h1 {
 .calendar-header h2 {
   margin: 0;
   font-size: 30px;
-  color: #444;
+  color: #111111;
 }
 
 .calendar-header button {
@@ -440,3 +440,14 @@ a = Alpha 透明度　の意味。0,0,0で黒*/
   }
 
 }
+
+#completed-page > h2,
+#completed-page > p {
+  font-family: arial ;
+}
+
+#habits-page > h2 {
+  font-family: arial ;
+}
+
+
