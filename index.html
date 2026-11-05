@@ -1,34 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>はびろぐ｜習慣化アプリ</title>
+  <title>習慣化スケジュール </title>
   <link rel="stylesheet" href="style.css">
-
-<!-- Google  Analytics 4 tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QFQWB3KM65"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QFQWB3KM65');
-</script>
-
 </head>
-
 
 <body>
 
 
 
-  <!--<h1>習慣化スケジュール </h1>-->
+  <h1>習慣化スケジュール </h1>
 
-  <!-- ===== カレンダー画面 ===== -->
   <section id="calendar-page" class="page active-page">
   <div class="calendar">
 
@@ -38,7 +24,9 @@
   <button id="next-month">→</button>
 </div>
 
-<div class="weekdays">
+  
+
+  <div class="weekdays">
   <div>日</div>
   <div>月</div>
   <div>火</div>
@@ -48,29 +36,39 @@
   <div>土</div>
 </div>
 
+
 <div class="calendar-days">
 </div>
 
 </div>
 </section>
 
-<!-- ===== 習慣一覧画面 ===== -->
 <section id="habits-page" class="page">
-  <h2>🌱 習慣化したいこと 🌱</h2>
+
+  <h2>🌱 習慣</h2>
+
   <p id="habit-count"></p>
+
   <div id="active-habit-list"></div>
+
   <button id="add-habit-button">
     ＋ 習慣を追加
   </button>
+
 </section>
 
-<!-- ===== 達成済み画面 ===== -->
+
 <section id="completed-page" class="page">
-  <h2>🏆 習慣化できたこと 🏆</h2>
+
+  <h2>🏆 習慣化できた！</h2>
+
+  <p>あなたが身につけた習慣</p>
+
   <div id="completed-habit-list"></div>
+
 </section>
 
-<!-- ===== 日付を押したときの記録モーダル ===== -->
+
 <div id="habit-modal" class="modal">
 
   <div class="modal-content">
@@ -86,26 +84,30 @@
 
 </div>
 
-<!-- ===== 習慣追加モーダル ===== -->
 <div id="add-habit-modal" class="modal">
+
   <div class="modal-content">
+
     <button id="close-add-habit-modal">←戻る</button>
+
     <h3>新しい習慣</h3>
+
     <p>何を習慣にする？</p>
+
     <input
       type="text"
       id="habit-name-input"
       placeholder="例：資格の勉強"
     >
-    <p>シールを選ぶ</p>
 
+    <p>シールを選ぶ</p>
 
 <div id="sticker-picker">
 
   <button class="sticker-button" data-sticker="👟">👟</button>
   <button class="sticker-button" data-sticker="🏋️">🏋️</button>
   <button class="sticker-button" data-sticker="🧘">🧘</button>
-  <button class="sticker-button" data-sticker="📔">📔</button>
+  <button class="sticker-button" data-sticker="💻">💻</button>
   <button class="sticker-button" data-sticker="📖">📖</button>
   <button class="sticker-button" data-sticker="✏️">✏️</button>
   <button class="sticker-button" data-sticker="☀️">☀️</button>
@@ -117,6 +119,7 @@
   <button class="sticker-button" data-sticker="🍽️">🍽️</button>
   <button class="sticker-button" data-sticker="🧹">🧹</button>
   <button class="sticker-button" data-sticker="💤">💤</button>
+
 </div>
 
     <button id="save-habit-button">
@@ -127,8 +130,6 @@
 
 </div>
 
-
-<!-- ===== 習慣詳細モーダル ===== -->
 <div id="habit-detail-modal" class="modal">
 
   <div class="modal-content">
@@ -151,8 +152,6 @@
 
 </div>
 
-
-<!-- ===== 下部ナビゲーション ===== -->
 <nav class="bottom-nav">
 
   <button class="nav-button active" data-page="calendar">
@@ -172,11 +171,7 @@
 
 </nav>
 
-<!-- ===== プライバシーポリシー ===== -->
-<footer class="privacy-footer">
-  <a href="privacy.html">プライバシーポリシー</a>
-</footer>
-
 <script src="script.js"></script>
 </body>
+
 </html>
